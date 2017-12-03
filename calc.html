@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+<title>Calculator</title>
+
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+form{
+   width: 260px;    
+    margin: 35px auto 0 auto;
+    border-radius: 3px;
+    }
+    .orange{
+        background: rgb(233, 137, 0);
+    }
+.form-elm{
+    height: 60px;
+    line-height: 60px;
+}
+.form-elm.clear{
+    width: 75%;
+    text-transform: uppercase;
+}
+input[type="text"]{width: 100%; padding: 0 10px; border:1px solid rgb(28, 18, 52); background: rgb(28, 18, 52); color: #fff;border-radius: 15px 15px 0 0;}
+::-webkit-input-placeholder {
+  opacity: 1;
+  color: #fff;
+}
+::-moz-placeholder{
+    opacity: 1;
+    color: #fff;
+}
+::-ms-input-placeholder{
+    opacity: 1;
+    color: #fff;
+}
+::-moz-placeholder {
+  opacity: 1;
+  color: #fff;
+}
+input[type="button"]{width: 25%;border:0; border-left: 1px solid #bbb;border-bottom: 1px solid #bbb; outline: 0; float: left;font-size: 24px;}
+</style>
+
+</head>
+<body>
+    <h1>Please use Calculator Keypad !</h1>
+<form name="calc-form">
+<input class="form-elm" id="display" name="display" type="text" value="" placeholder="0" />
+<input class="form-elm orange" id="btn" type="button" value="+" onclick=getvalue(this.value) />
+<input class="form-elm orange" id="btn" type="button" value="-" onclick=getvalue(this.value) />
+<input class="form-elm orange" id="btn" type="button" value="/" onclick=getvalue(this.value) />
+<input class="form-elm orange" id="btn" type="button" value="="  onclick=calcValue() />
+
+<input class="form-elm" id="btn" type="button" value="1" onclick=getvalue(this.value) />
+<input class="form-elm" id="btn" type="button" value="2" onclick=getvalue(this.value) />
+<input class="form-elm" id="btn" type="button" value="3" onclick=getvalue(this.value) />
+<input class="form-elm orange" id="btn" type="button" value="*" onclick=getvalue(this.value) />
+
+<input class="form-elm" id="btn" type="button" value="4" onclick=getvalue(this.value) />
+<input class="form-elm" id="btn" type="button" value="5" onclick=getvalue(this.value) />
+<input class="form-elm" id="btn" type="button" value="6" onclick=getvalue(this.value) />
+<input class="form-elm orange" id="btn" type="button" value="%"  onclick=getvalue(this.value) />
+
+<input class="form-elm" id="btn" type="button" value="7" onclick=getvalue(this.value) />
+<input class="form-elm" id="btn" type="button" value="8" onclick=getvalue(this.value) />
+<input class="form-elm" id="btn" type="button" value="9" onclick=getvalue(this.value) />
+<input class="form-elm orange" id="btn" type="button" value="." onclick=getvalue(this.value) />
+
+<input class="form-elm" id="btn" type="button" value="0" onclick=getvalue(this.value) />
+<input class="form-elm clear orange" id="btn" type="button" value="Clear"  onclick=clearInput() />
+</form>
+<script>
+    var inputExpression;
+    var result = 0;
+    function getvalue(buttonvalue){  
+        inputExpression = document.getElementById("display").value += buttonvalue;
+    }  
+    function calcValue() {
+         result = eval(inputExpression);
+          document.getElementById("display").value=result;
+    } 
+    function clearInput(){
+        document.forms[0].reset();
+    }  
+</script>
+</body>
+</html>
